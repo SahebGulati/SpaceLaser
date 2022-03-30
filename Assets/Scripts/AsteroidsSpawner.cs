@@ -40,20 +40,20 @@ public class AsteroidsSpawner : MonoBehaviour
             for (int i = 0; i < this.spawnAmount; i++)
             {
                 // random spawn direction in circular spawner
-                Vector3 spawnDirection = Random.insideUnitCircle.normalized/
+                Vector3 spawnDirection = Random.insideUnitCircle.normalized
                     * this.spawnDistance;
                 Vector3 spawnPoint = this.transform.position + spawnDirection;
 
                 //random degree of variance
-                float variance = Random.Range(-this.trajectoryVariance,/
+                float variance = Random.Range(-this.trajectoryVariance,
                     this.trajectoryVariance);
-                Quaternion rotation = Quaternion.AngleAxis(variance, /
+                Quaternion rotation = Quaternion.AngleAxis(variance, 
                     Vector3.forward);
-#ins               // instantiate asteroid with prefab, location of spawn, rotation
-                Asteroids asteroids = Instantiate(this.asteroidsPrefab,/
+               // instantiate asteroid with prefab, location of spawn, rotation
+                Asteroids asteroids = Instantiate(this.asteroidsPrefab,
                     spawnPoint, rotation);
                 // random size of asteroid within minSize-maxSize
-                asteroids.size = Random.Range(asteroids.minSize,/
+                asteroids.size = Random.Range(asteroids.minSize,
                     asteroids.maxSize);
                 //set direction of trajectory
                 asteroids.SetTrajectory(rotation * -spawnDirection);

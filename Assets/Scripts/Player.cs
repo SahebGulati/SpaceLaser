@@ -43,12 +43,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //input w for thrust
-        _thrusting = (Input.GetKey(KeyCode.W) ||/
+        _thrusting = (Input.GetKey(KeyCode.W) ||
             Input.GetKey(KeyCode.UpArrow));
         //input a for turn direction left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-#set        //float turn direction to 1
+        //float turn direction to 1
             _turnDirection = 1.0f;
         }
         // input d for turn direction negative (right)
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         //instantiate bullet position, prefab, rotation
-        Bullet bullet = Instantiate(this.bulletPrefab, /
+        Bullet bullet = Instantiate(this.bulletPrefab,
             this.transform.position, this.transform.rotation);
         bullet.Project(this.transform.up);
     }
